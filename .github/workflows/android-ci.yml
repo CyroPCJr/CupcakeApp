@@ -20,7 +20,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+        
       - run: echo "### kickoff build project ${{ github.repository }} :rocket:" >> $GITHUB_STEP_SUMMARY
       - uses: actions/checkout@v4.1.7
 
