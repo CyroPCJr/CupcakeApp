@@ -66,8 +66,8 @@ android {
 }
 
 dependencies {
-
-    implementation(platform("androidx.compose:compose-bom:2024.06.00"))
+    val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
+    implementation(composeBom)
     implementation("androidx.activity:activity-compose:1.9.1")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.runtime:runtime")
@@ -81,7 +81,14 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:${rootProject.extra["lifecycle_version"]}")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:${rootProject.extra["lifecycle_version"]}")
     implementation("androidx.navigation:navigation-compose:2.7.7")
-
+    implementation("androidx.compose.ui:ui-test-junit4-android:1.6.8")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
+
+    androidTestImplementation(composeBom)
+    androidTestImplementation("org.testng:testng:6.9.6")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.7.7")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.6.1")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
 }
